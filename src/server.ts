@@ -5,12 +5,14 @@ import {
   getApplicationConfig,
   getCertificateInfo,
 } from "./controllers/PipelineController.ts";
+import { getResource } from "./controllers/ResourceController.ts";
 
 const app = express();
 const port = 3000;
 app.use(express.json());
 
 app.get("/pipeline/application-config", authMiddleware, getApplicationConfig);
+app.get("/resources/:applicationId/:filename", authMiddleware, getResource);
 app.get("/pipeline/certificate-info", authMiddleware, getCertificateInfo);
 app.post("/webhook/pipeline/", authMiddleware, handleWebhook);
 

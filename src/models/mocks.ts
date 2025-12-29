@@ -16,6 +16,8 @@ const configObj: Config = {
   featureSearchEnabled: false,
   featureDidomiEnabled: false,
   accentColor: "#7F3ACD",
+  splashScreenURI: "",
+  iconURI:  "",
 };
 
 const certificateInfo: CertificateInfo = {

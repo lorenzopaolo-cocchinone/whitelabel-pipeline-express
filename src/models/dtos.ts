@@ -21,6 +21,8 @@ type Config = {
   featureSearchEnabled: boolean;
   featureDidomiEnabled: boolean;
   accentColor: string;
+  iconURI: string;
+  splashScreenURI: string;
 };
 
 type CertificateInfo = {
