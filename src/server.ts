@@ -3,7 +3,7 @@ import { authMiddleware } from "./security.ts";
 import { handleWebhook } from "./controllers/WebhookController.ts";
 import {
   getApplicationConfig,
-  getCertificateInfo,
+  getKeyStore,
 } from "./controllers/PipelineController.ts";
 import { getResource } from "./controllers/ResourceController.ts";
 
@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.get("/pipeline/application-config", authMiddleware, getApplicationConfig);
 app.get("/resources/:applicationId/:filename", authMiddleware, getResource);
-app.get("/pipeline/certificate-info", authMiddleware, getCertificateInfo);
+app.get("/pipeline/android/keystore/:applicationId", authMiddleware, getKeyStore);
 app.post("/webhook/pipeline/", authMiddleware, handleWebhook);
 
 app.listen(port, () => {

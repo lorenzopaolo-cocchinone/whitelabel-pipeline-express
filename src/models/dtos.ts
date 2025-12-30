@@ -25,13 +25,12 @@ type Config = {
   splashScreenURI: string;
 };
 
-type CertificateInfo = {
-  commonName: string;
-  organizationUnit: string;
-  organizationName: string;
-  locality: string;
-  state: string;
-  isoCountry: string;
+type KeystoreInfo = {
+  jksURI: string;
+  keystoreAlias: string;
+  storePassword: string;
+  keyPassword: string;
+  secretManagerRef: string;
 };
 
-export type { Config, CertificateInfo, PipelineEvent };
+export type { Config, KeystoreInfo, PipelineEvent };

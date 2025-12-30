@@ -1,4 +1,4 @@
-import { CertificateInfo, Config } from "./dtos.ts";
+import { Config, KeystoreInfo } from "./dtos.ts";
 
 const configObj: Config = {
   radioconnectApiBroadcasterUsername: "radioconnect_kebula@radioplayer.org",
@@ -8,9 +8,9 @@ const configObj: Config = {
   configUrl: "https://whitelabel-cms-dev.s3.eu-west-1.amazonaws.com/",
   didomiApiKey: "",
   didomiNoticeId: "",
-  applicationId: "org.radioplayer.whitelabel.demo",
-  applicationName: "Demo",
-  whiteLabelGeneratedId: "14",
+  applicationId: "org.radioplayer.whitelabel.rtl",
+  applicationName: "RTL Demo",
+  whiteLabelGeneratedId: "20",
   versionCode: "1",
   versionName: "1.0.0",
   featureSearchEnabled: false,
@@ -20,13 +20,14 @@ const configObj: Config = {
   iconURI:  "",
 };
 
-const certificateInfo: CertificateInfo = {
-  commonName: "Marco Massimale",
-  organizationUnit: "IT",
-  organizationName: "Acme SRL",
-  locality: "Napoli",
-  state: "NA",
-  isoCountry: "IT",
-};
+const keyStoreObj: KeystoreInfo = {
+  jksURI: "",
+  keystoreAlias: "whitelabelautomotivekey",
+  storePassword: "store_password",
+  keyPassword: "key_password",
+  secretManagerRef: ""
+}
 
-export { configObj, certificateInfo };
+
+
+export { configObj, keyStoreObj };
