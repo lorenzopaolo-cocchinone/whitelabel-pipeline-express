@@ -2,8 +2,9 @@ import { BuildStatus } from "../constants/PipelineStatus.ts";
 
 type PipelineEvent = {
   jobId: string;
-  status: BuildStatus;
+  message?: string;
   updatedAt: number;
+  status: BuildStatus;
 };
 
 type Config = {

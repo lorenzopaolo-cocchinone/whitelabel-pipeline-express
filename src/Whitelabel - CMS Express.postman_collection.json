@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "624e7780-96c4-4fc3-b026-b776f4010dd7",
+		"name": "Whitelabel - CMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25464741"
+	},
+	"item": [
+		{
+			"name": "WebHook",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"jobId\", \"job_\" + 1000);",
+							"pm.variables.set(\"updatedAt\", Math.floor(Date.now() / 1000));"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jobId\": \"{{jobId}}\",\n  \"message\": \"message test\",\n  \"status\": \"Started\",\n  \"updatedAt\": \"{{updatedAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/webhook/pipeline"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Application Config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/pipeline/application-config"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Splash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/resources/:application_id/splash.gif",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"resources",
+						":application_id",
+						"splash.gif"
+					],
+					"variable": [
+						{
+							"key": "application_id",
+							"value": "org.radioplayer.whitelabel.rtl"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get JKS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/resources/:application_id/keystore.jks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"resources",
+						":application_id",
+						"keystore.jks"
+					],
+					"variable": [
+						{
+							"key": "application_id",
+							"value": "org.radioplayer.whitelabel.rtl"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Icon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/resources/:application_id/icon.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"resources",
+						":application_id",
+						"icon.png"
+					],
+					"variable": [
+						{
+							"key": "application_id",
+							"value": "org.radioplayer.whitelabel.rlt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Keystore Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/pipeline/android/keystore/:applicationId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pipeline",
+						"android",
+						"keystore",
+						":applicationId"
+					],
+					"variable": [
+						{
+							"key": "applicationId",
+							"value": "org.radioplayer.whitelabel.rtl"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{auth_token}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "auth_token",
+			"value": ""
+		},
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
